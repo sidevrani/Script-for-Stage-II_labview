@@ -48,7 +48,7 @@ def curve_i_vs_t(local_dir):
     Exp_data= accum_data_function.accu_data(local_dir)
     mod_data = Exp_data[['date','pore_density','Treatment' ,'peptide','Membrane_name','Conc(fM)','Fluid', 'Run','time(sec)','voltage(V)', 'current(nA)','Norm_Volt','Norm_Curr']]
     
-    #mod_data['Conc(fM)'] = mod_data['Conc(fM)'].map(lambda x: float(x.split('f')[0].replace('X','').replace('10^','.e+')) if x != '10^10fM' else float(x.split('f')[0].replace('X','').replace('10^','1.e+')))
+    mod_data['Conc(fM)'] = mod_data['Conc(fM)'].map(lambda x: float(x.split('f')[0].replace('X','').replace('10^','.e+')) if x != '10^10fM' else float(x.split('f')[0].replace('X','').replace('10^','1.e+')))
     #mod_data['Conc(fM)'] = mod_data['Conc(fM)'].map(lambda x: x.split('f')[0].replace('X','').replace('10^','.e+')) if x != '10^10fM' else float(x.split('f')[0].replace('X','').replace('10^','1.e+'))
     mod_data['time(sec)'] = mod_data['time(sec)'].map(lambda x :float(x))
     mod_data['voltage(V)'] = mod_data['voltage(V)'].map(lambda x :float(x))
