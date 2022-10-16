@@ -27,7 +27,7 @@ import hysteresis as hys
 
 
 sys.path.append(r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Pyhton scripts_labview\Script for Stage II_labview')
-from utils import accum_data_function
+import accum_data_function
 import backbone_curve
 import Hyst_actual_data
 import Curve_ivst
