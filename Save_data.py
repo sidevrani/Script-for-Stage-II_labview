@@ -35,30 +35,50 @@ import Curve_IV_Runs
 import Curve_IV_Conc
 import standard_deviation_calculation
 
-local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\13102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\13102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 #local_dir = r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\For_Data_analysis\14082022_Cyl_preetch_func_0.03Mumerror_buffer_9concn_wrong prep memb'
 
 def save_data(local_dir):
-     Exp_data = accum_data_function.accu_data(local_dir)
-     Hyst_data = Hyst_actual_data.hist_calc(Exp_data)
-     backbone = backbone_curve.backbone_curve(Exp_data)
-
-
-     Curve_ivst.curve_i_vs_t(local_dir)
-     Curve_IV_Conc.curve_IV(local_dir,backbone)
-     Curve_IV_Runs.curve_i_vs_t(local_dir,backbone)
-
+   
      identifier = local_dir.split('\\')[-1]
-
      writer = pd.ExcelWriter(local_dir+ '\Results_{0}.xlsx'.format(identifier), engine = 'xlsxwriter')
-        
-     Exp_data.to_excel(writer, sheet_name= 'Accumulated Data', index = False)
-     Hyst_data.to_excel(writer, sheet_name= 'Hysterisis Data', index = False)
-     backbone.to_excel(writer, sheet_name= 'backbone', index = False)  
+     try:
+          Exp_data = accum_data_function.accu_data(local_dir)
+          Exp_data.to_excel(writer, sheet_name= 'Accumulated Data', index = False)
+     except:
+          next 
+     try:
+          Hyst_data = Hyst_actual_data.hist_calc(Exp_data)
+          Hyst_data.to_excel(writer, sheet_name= 'Hysterisis Data', index = False)
+     except:
+          next
+     try:     
+          backbone = backbone_curve.backbone_curve(Exp_data)
+          backbone.to_excel(writer, sheet_name= 'backbone', index = False)
+     except:
+          next
+     try: 
+          Curve_ivst.curve_i_vs_t(local_dir)
+     except:
+          next
+     try: 
+          Curve_IV_Conc.curve_IV(local_dir,backbone)
+     except:
+          next
+     
+     try:
+          Curve_IV_Runs.curve_i_vs_t(local_dir,backbone)
+     except:
+          next
+
+     try:
+          standard_deviation_calculation.SD(backbone,local_dir)
+     except:
+          next
      writer.save()
-     standard_deviation_calculation.SD(backbone,local_dir)
+
      return 
 
-save_data(local_dir)
+#save_data(local_dir)
 
 
