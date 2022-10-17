@@ -20,13 +20,13 @@ from sklearn.preprocessing import MinMaxScaler
 Scale = MinMaxScaler(feature_range=(-1,1))
 import accum_data_function
 
-#local_dir = r'C:\Users\xdevsh\Desktop\14082022_Cyl_preetch_func_0.03Mumerror_buffer_9concn_wrong prep memb_trail'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\14102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 
 #Exp_data= accum_data_function.accu_data(local_dir)
 
 def hist_calc(Exp_data):
-    Exp_data_1 = Exp_data.iloc[:, -7:]
-    #Exp_data
+    #define list of paramaters to calculate
+
     files = []
     Rem_pos = []
     Rem_neg = []
@@ -50,19 +50,18 @@ def hist_calc(Exp_data):
     florescense = []
 
 
-    # Filter through the files
-    filenames = Exp_data_1['filename'].unique()
+    # Filter through the files with particualr name
+    filenames = Exp_data['filename'].unique()
     for filename in filenames:
-        Mod_Exp_data = Exp_data_1[(Exp_data_1['filename']== filename)]
+        Mod_Exp_data = Exp_data[(Exp_data['filename']== filename)]
         Mod_Exp_data['Floursence'] = Mod_Exp_data['Floursence'].astype(np.float64)
-
-    # Exp_data
  
-        # Variables for identifiycing key voltage piints for averaging later. 
+        # Variables for identifiycing key voltage points for averaging later. 
         max_voltage = Mod_Exp_data['Norm_Volt'].max()
         min_voltage = Mod_Exp_data['Norm_Volt'].min()
         avg_voltage = round(Mod_Exp_data['Norm_Volt'].mean(),1)
         #round(avg_voltage,1)
+
         # Pick out indexes of avg, min, max voltage
         a1 = Mod_Exp_data['Norm_Volt'].index[Mod_Exp_data['Norm_Volt'] == max_voltage]
         b1 = Mod_Exp_data['Norm_Volt'].index[Mod_Exp_data['Norm_Volt'] == min_voltage]
@@ -200,7 +199,7 @@ def hist_calc(Exp_data):
             flo_columns = Mod_Exp_data['Floursence'][Mod_Exp_data['Floursence']>0]
             flo = np.mean(flo_columns)
             positive_cond = Mod_Exp_data['current(nA)'].loc[Mod_Exp_data['Norm_Volt']==max_voltage].values[0]
-            negative_cond = Mod_Exp_data['current(nA)'].loc[Mod_Exp_data['orm_Volt']==min_voltage].values[0]
+            negative_cond = Mod_Exp_data['current(nA)'].loc[Mod_Exp_data['Norm_Volt']==min_voltage].values[0]
             Rect_fac = (positive_cond / negative_cond)
 
 

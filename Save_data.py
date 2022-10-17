@@ -36,7 +36,7 @@ import Curve_IV_Conc
 import standard_deviation_calculation
 
 #ocal_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\13102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
-local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\14102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\14102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 
 def save_data(local_dir):
      
@@ -78,6 +78,6 @@ def save_data(local_dir):
      writer.save()
      return 
 
-save_data(local_dir)
+#save_data(local_dir)
 
 

@@ -14,7 +14,7 @@ import openpyxl as oxl
 from openpyxl import load_workbook
 
 
-#local_dir = r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\For_Data_analysis\09062022_Cyl.preetch_unfunc_0.02MumPR4_buffer_5Conc(1)_double dispense to valve & waste_sampleSD'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\14102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 
 #Exp_data= accum_data_function.accu_data(local_dir)
 
