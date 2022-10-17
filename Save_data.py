@@ -70,12 +70,12 @@ def save_data(local_dir):
           Curve_IV_Runs.curve_i_vs_t(local_dir,backbone)
      except:
           next
-
+     writer.save()
      try:
           standard_deviation_calculation.SD(backbone,local_dir)
      except:
           next
-     writer.save()
+     
      return 
 
 #save_data(local_dir)
