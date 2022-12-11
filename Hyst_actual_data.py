@@ -20,7 +20,7 @@ from sklearn.preprocessing import MinMaxScaler
 Scale = MinMaxScaler(feature_range=(-1,1))
 import accum_data_function
 
-#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\14102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\21112022_Con_selfetch_func_XXMumSE15_HS_8conc_sen&sel1V20pointsSD=3'
 
 #Exp_data= accum_data_function.accu_data(local_dir)
 
@@ -48,6 +48,7 @@ def hist_calc(Exp_data):
     neg_cond = []
     Rect_factor = []
     florescense = []
+    Area_trap = []
 
 
     # Filter through the files with particualr name
@@ -131,8 +132,8 @@ def hist_calc(Exp_data):
                 B['current(nA)'] = B['current(nA)'].astype(np.float64)
                 B['Norm_Curr'] = B['Norm_Curr'].astype(np.float64)
 
-            #B['Avg_current(nA)'] = B['current(nA)']
-            #B['Avg_Norm_Curr'] = B['Norm_Curr']
+            B['Avg_current(nA)'] = B['current(nA)'].mean(axis=1)
+            B['Avg_Norm_Curr'] = B['Norm_Curr'].mean(axis=1)
             B.drop('current(nA)', axis=1, inplace=True)
             B.drop('Norm_Curr', axis=1, inplace=True)
             B['Norm_Volt'] = [i for i in volt_range_2]
@@ -148,6 +149,14 @@ def hist_calc(Exp_data):
             y1 = C['Avg_Norm_Curr'].values
             xy = np.column_stack([x,y])
             xy1 = np.column_stack([x,y1])
+            # Convert the x and y values to numpy arrays
+            x_values = np.array(x)
+            y_values = np.array(y)
+            
+            # Use the numpy trapz function to find the area under the curve
+            area_trap = np.trapz(y_values, x_values)
+
+            
             #fig, ax = plt.subplots()
             myHys = hys.Hysteresis(xy)
             myHys_norm = hys.Hysteresis(xy1)
@@ -189,6 +198,7 @@ def hist_calc(Exp_data):
             fluid.append(filename.split('_')[7])
             run.append(filename.split('_')[8])
             florescense.append(flo)
+            Area_trap.append(area_trap)
         
         
         #df = pd.DataFrame(data= [date,user,pore_density,treat,peptide,memb,conc,fluid,run, Hyst_area, Rem_pos,Rem_neg,pos_cond,neg_cond,Rect_factor,cum_Area,Area,Hyst_area_norm, florescense])
@@ -219,16 +229,17 @@ def hist_calc(Exp_data):
             run.append(filename.split('_')[8])
             
         
-        df = pd.DataFrame(data= [date,user,pore_density,treat,peptide,memb,conc,fluid,run, Hyst_area, Rem_pos,Rem_neg,pos_cond,neg_cond,Rect_factor,cum_Area,Area,Hyst_area_norm, florescense])
+        df = pd.DataFrame(data= [date,user,pore_density,treat,peptide,memb,conc,fluid,run, Hyst_area, Rem_pos,Rem_neg,pos_cond,neg_cond,Rect_factor,cum_Area,Area,Hyst_area_norm, florescense,Area_trap])
         df = df.T#(columns = ['files','Hyst_Area'])
-        df = df.rename(columns = {0 : 'date', 1 : 'Supervisor', 2 : 'pore_density',3 : 'Treatment' ,4 : 'peptide', 5 : 'Membrane_name',6 : 'Conc',7 : 'Fluid', 8 : 'Run', 9: 'net area', 10: 'rem. pos', 11 : 'rem. neg',12: 'positive Conductance',13: 'negative Conductance',14: 'Rectification Factor',15: 'cumulativeArea',16: 'Area',17:'net area_norm data',18: 'florosence' })    
+        df = df.rename(columns = {0 : 'date', 1 : 'Supervisor', 2 : 'pore_density',3 : 'Treatment' ,4 : 'peptide', 5 : 'Membrane_name',6 : 'Conc',7 : 'Fluid', 8 : 'Run', 9: 'net area', 10: 'rem. pos', 11 : 'rem. neg',12: 'positive Conductance',13: 'negative Conductance',14: 'Rectification Factor',15: 'cumulativeArea',16: 'Area',17:'net area_norm data',18: 'florosence', 19: 'Area_Trap' })    
 
 
     return df
 
 
+#abcd = hist_calc(Exp_data)
 
-#print(hist_calc(Exp_data))
+#print(abcd)
 
 
 
