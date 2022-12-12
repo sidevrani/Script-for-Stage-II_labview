@@ -26,7 +26,7 @@ from numpy import trapz
 import hysteresis as hys
 
 
-sys.path.append(r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Pyhton scripts_labview\Script for Stage II_labview')
+sys.path.append(r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\Pyhton scripts_labview\Script for Stage II_labview')
 import accum_data_function
 import backbone_curve
 import Hyst_actual_data
@@ -36,7 +36,7 @@ import Curve_IV_Conc
 import standard_deviation_calculation
 
 #local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\25102022_Cyl_preetch_ATCUN_0.03MumPR12_HS_4conc_secondrunsawtooth_edit'
-#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\21112022_Con_selfetch_func_XXMumSE15_HS_8conc_sen&sel0.5V20pointsSD 3_reduced'
+local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\05122022_Con_selfetch_unfunc_XXMumSE17_HS_9conc_Selectivity&Sensitivityagain'
 
 def save_data(local_dir):
      
@@ -76,10 +76,15 @@ def save_data(local_dir):
            
      except:
           next
+     try:
+          Fluo_vs_runs.curve_flo_vs_runs(local_dir,Exp_data)
+           
+     except:
+          next
      
      return 
 
 
-#save_data(local_dir)
+save_data(local_dir)
 
 
