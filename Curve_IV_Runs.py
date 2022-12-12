@@ -42,7 +42,7 @@ font = {'family': 'serif',
 #local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\06102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 #Exp_data= accum_data_function.accu_data(local_dir)
 
-backbone = backbone_curve.backbone_curve(Exp_data)
+#backbone = backbone_curve.backbone_curve(Exp_data)
 def curve_i_vs_t(local_dir,backbone):
     backbone['Run'] = backbone['filename'].map(lambda x : x.split('_')[8])
     backbone['Conc(fM)'] = backbone['filename'].map(lambda x :x.split('_')[6])
