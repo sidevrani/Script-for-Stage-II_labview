@@ -25,7 +25,7 @@ from numpy import trapz
 import hysteresis as hys
 
 
-sys.path.append(r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Pyhton scripts_labview\Script for Stage II_labview')
+sys.path.append(r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\Pyhton scripts_labview\Script for Stage II_labview')
 import accum_data_function
 import backbone_curve
 

@@ -34,12 +34,12 @@ import Curve_ivst
 import Curve_IV_Runs
 import Curve_IV_Conc
 import standard_deviation_calculation
+import Fluo_vs_runs
 
 #local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\25102022_Cyl_preetch_ATCUN_0.03MumPR12_HS_4conc_secondrunsawtooth_edit'
 local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\05122022_Con_selfetch_unfunc_XXMumSE17_HS_9conc_Selectivity&Sensitivityagain'
 
 def save_data(local_dir):
-     
      identifier = local_dir.split('\\')[-1]
      writer = pd.ExcelWriter(local_dir+ '\Results_{0}.xlsx'.format(identifier), engine = 'xlsxwriter')
      try:
@@ -47,6 +47,13 @@ def save_data(local_dir):
           Exp_data.to_excel(writer, sheet_name= 'Accumulated Data', index = False)
      except:
           next 
+
+     try:
+          Fluo_vs_runs.curve_flo_vs_runs(local_dir,Exp_data)
+           
+     except:
+          next
+          
      try:
           Hyst_data = Hyst_actual_data.hist_calc(Exp_data)
           Hyst_data.to_excel(writer, sheet_name= 'Hysterisis Data', index = False)
@@ -73,11 +80,6 @@ def save_data(local_dir):
      writer.close()
      try:
           standard_deviation_calculation.SD(backbone,local_dir)
-           
-     except:
-          next
-     try:
-          Fluo_vs_runs.curve_flo_vs_runs(local_dir,Exp_data)
            
      except:
           next

@@ -5,7 +5,7 @@ import  re
 from tokenize import Double
 from typing import Any
 import xlsxwriter
-sys.path.append(r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Pyhton scripts_labview\Script for Stage II_labview')
+sys.path.append(r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\Pyhton scripts_labview\Script for Stage II_labview')
 
 import matplotlib
 from openpyxl import load_workbook

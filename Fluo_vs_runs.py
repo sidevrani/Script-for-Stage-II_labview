@@ -25,7 +25,7 @@ from numpy import trapz
 import hysteresis as hys
 
 
-sys.path.append(r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Pyhton scripts_labview\Script for Stage II_labview')
+sys.path.append(r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\Pyhton scripts_labview\Script for Stage II_labview')
 import accum_data_function
 import backbone_curve
 
@@ -92,7 +92,7 @@ def curve_flo_vs_runs(local_dir,Exp_data):
     #ax.set_xlim(0, 12)
     #ax.set_xlabel('X-axis')
     ax.set_xticklabels(x_axis,fontsize=15, rotation=45)
-    ax.set_yticklabels(x_axis,fontsize=15, rotation=45)
+    ax.set_yticklabels(y_flo,fontsize=15, rotation=45)
 
     plt.savefig(local_dir + '/Flour_vs_Conc,run' + '.png')
     
