@@ -20,9 +20,9 @@ from sklearn.preprocessing import MinMaxScaler
 Scale = MinMaxScaler(feature_range=(-1,1))
 import accum_data_function
 
-local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\For_Data_analysis\01082022_Cyl_preetch_func_0.01Mumerror_buffer_9concn_wrong prep memb'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\For_Data_analysis\01082022_Cyl_preetch_func_0.01Mumerror_buffer_9concn_wrong prep memb'
 
-Exp_data= accum_data_function.accu_data(local_dir)
+#Exp_data= accum_data_function.accu_data(local_dir)
 
 
 def hist_calc_1(Exp_data):
@@ -74,4 +74,4 @@ def hist_calc_1(Exp_data):
     return voltage_values
 
 
-hist_calc_1(Exp_data)
+#hist_calc_1(Exp_data)

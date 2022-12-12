@@ -40,7 +40,7 @@ font = {'family': 'serif',
         'size': 16,
         }
 
-local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\13102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\13102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 
 
 # define the curve sketch and save function
@@ -98,4 +98,4 @@ def curve_i_vs_t(local_dir):
                         
     return  
                                     
-curve_i_vs_t(local_dir)
+#curve_i_vs_t(local_dir)

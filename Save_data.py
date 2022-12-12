@@ -35,8 +35,8 @@ import Curve_IV_Runs
 import Curve_IV_Conc
 import standard_deviation_calculation
 
-#ocal_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\13102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
-#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\14102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\25102022_Cyl_preetch_ATCUN_0.03MumPR12_HS_4conc_secondrunsawtooth_edit'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\21112022_Con_selfetch_func_XXMumSE15_HS_8conc_sen&sel0.5V20pointsSD 3_reduced'
 
 def save_data(local_dir):
      
@@ -70,13 +70,15 @@ def save_data(local_dir):
           Curve_IV_Runs.curve_i_vs_t(local_dir,backbone)
      except:
           next
-     writer.save()
+     writer.close()
      try:
           standard_deviation_calculation.SD(backbone,local_dir)
+           
      except:
           next
      
      return 
+
 
 #save_data(local_dir)
 

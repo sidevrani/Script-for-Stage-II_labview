@@ -39,10 +39,10 @@ font = {'family': 'serif',
         'size': 16,
         }
 
-#local_dir = r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\For_Data_analysis\10062022_Cyl.preetch_unfunc_0.02MumPR4_buffer_5Conc(1)_double dispense to valve & waste_sampleSD'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\06102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 #Exp_data= accum_data_function.accu_data(local_dir)
 
-#backbone = backbone_curve.backbone_curve(Exp_data)
+backbone = backbone_curve.backbone_curve(Exp_data)
 def curve_i_vs_t(local_dir,backbone):
     backbone['Run'] = backbone['filename'].map(lambda x : x.split('_')[8])
     backbone['Conc(fM)'] = backbone['filename'].map(lambda x :x.split('_')[6])

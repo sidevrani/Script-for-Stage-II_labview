@@ -14,11 +14,11 @@ import openpyxl as oxl
 from openpyxl import load_workbook
 
 
-# local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\14102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
+#local_dir = r'C:\Users\TIDAS\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\24102022_Cyl_preetch_ATCUN_0.03MumPR11_buffer_stability_0fM0.5V20mMETDArev'
 
-# Exp_data= accum_data_function.accu_data(local_dir)
+#Exp_data= accum_data_function.accu_data(local_dir)
 
-# backbone = backbone_curve.backbone_curve(Exp_data)
+#backbone = backbone_curve.backbone_curve(Exp_data)
 
 
 def SD(backbone,local_dir):
@@ -60,8 +60,8 @@ def SD(backbone,local_dir):
         #writer = pd.ExcelWriter(local_dir+ '\Acc_results4.xlsx', engine = 'xlsxwriter')
         with pd.ExcelWriter(local_dir+ '\Results_{0}.xlsx'.format(identifier), engine='openpyxl', mode='a') as writer: 
             df_conc.to_excel(writer,sheet_name= '{0}_Statistics'.format(conc), index = False) 
-            #writer.save()
-            #writer.close()    
+            writer.save()
+            writer.close()    
     return 
 
 

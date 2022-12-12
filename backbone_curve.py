@@ -9,7 +9,7 @@ import accum_data_function
 import numpy as np
 import pandas as pd
 
-#local_dir = r'C:\Users\xdevsh\Desktop\14082022_Cyl_preetch_func_0.03Mumerror_buffer_9concn_wrong prep memb_trail'
+#local_dir = r'C:\Users\xdevsh\OneDrive - University of Gothenburg\TietzeLab\Autodata_Exp\06102022_Cyl_preetch_unfunc_0.03MumPR10_buffer_selectivity with Ni & Cu'
 
 #Exp_data= accum_data_function.accu_data(local_dir)
 
@@ -55,4 +55,4 @@ def backbone_curve(Exp_data):
 
     return backbone
 
-#a = backbone_curve(Exp_data)
+#a = backbone_curve(Exp_data)#
